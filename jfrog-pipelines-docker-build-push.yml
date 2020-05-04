@@ -66,7 +66,7 @@ pipelines:
         configuration:
           targetRepository: docker-local
           integrations:
-            - name: demoaol
+            - name: demoArt
           inputSteps:
             - name: docker_build
 
