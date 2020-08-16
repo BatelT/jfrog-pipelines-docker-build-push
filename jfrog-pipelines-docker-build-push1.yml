@@ -10,14 +10,13 @@ resources:
   - name: build_info_1_docker_build_push
     type: BuildInfo
     configuration:
-      sourceArtifactory: demoArt
       buildName: svc_build
       buildNumber: 1
 
   - name: promoted_build_info
     type: BuildInfo
     configuration:
-      sourceArtifactory: demoArt
+      sourceArtifactory: artifactory
       buildName: svc_build
       buildNumber: 1
 
@@ -34,14 +33,14 @@ pipelines:
           inputResources:
             - name: repo_1_docker_build_push
           integrations:
-            - name: demoArt
+            - name: artifactory
 
       - name: docker_push
         type: DockerPush
         configuration:
           targetRepository: docker-local
           integrations:
-            - name: demoArt
+            - name: artifactory
           inputSteps:
             - name: docker_build
 
